@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <title id="title-response">Hello, I'm Cloe.</title>
+
+    <!-- CSS stylesheets -->
+    <link rel="stylesheet" href="css/bulma.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- Javascript libraries -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bulma.js"></script>
+    <script type="text/javascript" src="js/annyang.min.js"></script>
+    <script type="text/javascript" src="js/p5.min.js"></script>
+    <script type="text/javascript" src="js/p5.sound.js"></script>
+    <script type="text/javascript" src="js/compromise.min.js"></script>
+    <script type="text/javascript" src="js/interface.js"></script>
+    <script type="text/javascript" src="js/cloe.js"></script>
+  </head>
+  <body>
+    <!-- interface -->
+    <section class="hero is-info is-fullheight" id="cloe">
+      <!-- Hero header: will stick at the top -->
+      <div class="hero-head">
+        <header class="nav">
+          <div class="container">
+            <div class="nav-left">
+              <a class="nav-item">
+                <!-- for volume response -->
+                <div id="canvas-holder"></div>
+                <img src="/static/images/logo.png" alt="logo">
+              </a>
+            </div>
+          </div>
+        </header>
+      </div>
+
+      <!-- Hero content: will be in the middle -->
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <!-- response text -->
+          <p class="title" id="response"></p>
+          <p class="subtitle" id="help"></p>
+          <script type="text/javascript">
+            // for response
+            $('#response').animateCss('fadeIn');
+            $('#response').html("Hello, I'm Cloe.");
+
+            $('#help').animateCss('fadeIn');
+            $('#help').html("Try saying \"Hello!\"");
+          </script>
+        </div>
+      </div>
+
+      <!-- footer -->
+      <footer class="footer">
+        <div class="container">
+          <div class="content has-text-centered">
+            <p>
+              <strong>Cloe</strong> by <a href="http://jins.world">Jin Yeom</a>. The source code is licensed
+              <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+              is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC ANS 4.0</a>.
+            </p>
+            <p>
+              <a class="icon" href="https://github.com/jinyeom/cloe">
+                <i class="fa fa-github"></i>
+              </a>
+            </p>
+          </div>
+        </div>
+      </footer>
+    </section>
+  </body>
+</html>
