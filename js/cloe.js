@@ -96,7 +96,7 @@ if (annyang) {
             $('#content-wiki').html(page.extract);
 
             $('html').addClass('is-clipped');
-            $('#modal-wiki').animateCss('fadeIn');
+            $('#modal-wiki-card').animateCss('fadeInUp');
             $('#modal-wiki').addClass('is-active');
           } else {
             googleSearch(processed);
