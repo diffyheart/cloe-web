@@ -121,6 +121,13 @@ if (annyang) {
     }
   };
 
+  // Search word definition on Wiktionary.
+  var wiktionarySearch = function(word) {
+
+    // to be implemented
+
+  };
+
   // Close the modal if it's open.
   var closeModal = function() {
     if (listening) {
@@ -200,6 +207,9 @@ if (annyang) {
     'what is *topic': wikiSearch,
     'who\'s *topic': wikiSearch,
     'who is *topic': wikiSearch,
+
+    // wiktionary search
+    'what does :word mean': wiktionarySearch,
 
     // close modal
     'you can close that': closeModal,
