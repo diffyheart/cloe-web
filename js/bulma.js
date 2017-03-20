@@ -21,7 +21,7 @@ jQuery(document).ready(function ($) {
 
   $('.modal-card-head .delete, .modal-card-foot .button').click(function() {
     $('html').removeClass('is-clipped');
-    $('#modal-ter').removeClass('is-active');
+    $('#modal-wiki').removeClass('is-active');
   });
 
   var $highlights = $('.highlight');
