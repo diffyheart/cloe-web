@@ -19,9 +19,6 @@ var respond = function(response) {
 };
 
 if (annyang) {
-  // greeting
-  respond('Hello, I\'m Cloe.');
-
   var listening = false;
   var modalOpened = false;
 
@@ -225,6 +222,4 @@ if (annyang) {
 
   annyang.addCommands(commands);
   annyang.start();
-} else {
-    respond('Sorry, you\'re on an unsupported browser. 😵');
 }
