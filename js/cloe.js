@@ -20,6 +20,7 @@ var respond = function(response) {
 
 if (annyang) {
   var listening = false;
+  var modalOpened = false;
 
   // start listening responses
   var startListeningResponses = ['What\'s up?', 'Yes?', 'Yeah?', 'Mmhmm?',
@@ -77,8 +78,6 @@ if (annyang) {
   // Search a topic on Wikipedia; search google if it's not found.
   var wikiSearch = function(topic) {
     if (listening) {
-      respond('Searching \'' + topic + '\' on Wikipedia...');
-
       var processed = topic.replace(/ /g, '%20');
       var url = 'https://en.wikipedia.org/w/api.php?action=query&' +
       'prop=extracts&format=json&exintro=&titles=' + processed
@@ -92,24 +91,38 @@ if (annyang) {
         success: function(data) {
           var page = Object.values(data.query.pages)[0];
           if (page.extract.length > 0) {
+            modalOpened = true;
+            respond('Searching \'' + topic + '\' on Wikipedia...');
+
             $('#title-wiki').html(page.title);
             $('#content-wiki').html(page.extract);
 
             $('html').addClass('is-clipped');
-            $('#modal-wiki-card').animateCss('fadeInUp');
+            $('#modal-wiki').animateCss('fadeIn');
             $('#modal-wiki').addClass('is-active');
           } else {
-            googleSearch(processed);
+            respond('I couldn\'t find \'' + topic + '\' on Wikipedia. ' +
+              'Searching on Google...');
+            window.open('https://www.google.com/#q=' + processed);
           }
         },
         error: function() {
           googleSearch(processed);
         }
       });
-
-      //googleSearch(topic);
-      listening = false;
     }
+  };
+
+  // Close the modal if it's open.
+  var closeModal = function() {
+    if (listening) {
+      if (modalOpened) {
+        $('html').removeClass('is-clipped');
+        $('#modal-wiki').removeClass('is-active');
+        modalOpened = false;
+      }
+    }
+    listening = false;
   };
 
   // Search a place on Google map.
@@ -166,10 +179,17 @@ if (annyang) {
 
     // wikipedia search
     'what\'s *topic': wikiSearch,
+    'what is *topic': wikiSearch,
     'who\'s *topic': wikiSearch,
+    'who is *topic': wikiSearch,
+
+    // close modal
+    '(okay) you can close that': closeModal,
+    '(could you) close that': closeModal,
 
     // map search
     'where\'s *place': mapSearch,
+    'where is *place': mapSearch,
     'how do I get to *place': mapSearch,
 
     // general search
