@@ -20,7 +20,6 @@ var respond = function(response) {
 
 if (annyang) {
   var listening = false;
-  var helpMessage = true;
 
   // start listening responses
   var startListeningResponses = ['What\'s up?', 'Yes?', 'Yeah?', 'Mmhmm?',
@@ -47,18 +46,8 @@ if (annyang) {
     }, 1000);
   }
 
-  // Get started.
-  var getStarted = function() {
-    scrollTo('#overview');
-  };
-
   // Start listening.
   var startListening = function() {
-    if (helpMessage) {
-      $('#help').remove();
-      helpMessage = false;
-    }
-    scrollTo('#cloe');
     respond(randSelect(startListeningResponses));
     listening = true;
   };
@@ -83,6 +72,25 @@ if (annyang) {
       respond('It\'s ' + time.timeNow() + '.');
       listening = false;
     }
+  };
+
+  // Search a topic on Wikipedia; search google if it's not found.
+  var wikiSearch = function(topic) {
+    if (listening) {
+      respond('Searching \'' + topic + '\' on Wikipedia...');
+
+      $('html').addClass('is-clipped');
+      $('#modal-wiki').animateCss('fadeIn');
+      $('#modal-wiki').addClass('is-active');
+
+      //googleSearch(topic);
+      listening = false;
+    }
+  };
+
+  // Search a place on Google map.
+  var mapSearch = function(topic) {
+
   };
 
   // Google search given a search topic.
@@ -132,13 +140,20 @@ if (annyang) {
     'show me time': showTime,
     'what time is it': showTime,
 
-    // current weather
+    // wikipedia search
+    'what\'s *topic': wikiSearch,
+    'who\'s *topic': wikiSearch,
 
-    // web search
+    // map search
+    'where\'s *place': mapSearch,
+    'how do I get to *place': mapSearch,
+
+    // general search
     'google *topic': googleSearch,
     'bing *topic': bingSearch,
     'search *topic': googleSearch,
 
+    // open web page
     'open *website': openWebsite,
     'go to *website': openWebsite,
   };

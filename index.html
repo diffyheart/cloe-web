@@ -43,15 +43,26 @@
         <div class="container has-text-centered">
           <!-- response text -->
           <p class="title" id="response"></p>
-          <p class="subtitle" id="help"></p>
           <script type="text/javascript">
             // for response
             $('#response').animateCss('fadeIn');
             $('#response').html("Hello, I'm Cloe.");
-
-            $('#help').animateCss('fadeIn');
-            $('#help').html("Try saying \"Hello!\"");
           </script>
+        </div>
+      </div>
+
+      <!-- modal for wikipedia search -->
+      <div id="modal-wiki" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title" id="title-wiki"></p>
+            <button class="delete"></button>
+          </header>
+          <section class="modal-card-body" id="body-wiki"></section>
+          <footer class="modal-card-foot">
+            <a class="button">Cancel</a>
+          </footer>
         </div>
       </div>
 
