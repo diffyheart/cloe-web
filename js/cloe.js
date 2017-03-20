@@ -51,6 +51,7 @@ if (annyang) {
   var favoriteFood = function() { respond('🍣'); };
   var favoriteDrink = function() { respond('🍺'); };
   var favoriteFruit = function() { respond('🍑'); };
+  var favoriteAnimal = function() { respond('🐳'); };
 
   // Start listening.
   var startListening = function() {
@@ -181,6 +182,7 @@ if (annyang) {
     'Chloe what\'s your favorite food': favoriteFood,
     'Chloe what\'s your favorite drink': favoriteDrink,
     'Chloe what\'s your favorite fruit': favoriteFruit,
+    'Chloe what\'s your favorite animal': favoriteAnimal,
 
     // stop listening
     'nevermind': stopListening,
