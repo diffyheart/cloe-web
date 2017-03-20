@@ -98,7 +98,7 @@ if (annyang) {
           var page = Object.values(data.query.pages)[0];
           if (page.extract.length > 0) {
             modalOpened = true;
-            respond('Searching \'' + topic + '\' on Wikipedia...');
+            $('#response').html('Searching \'' + topic + '\' on Wikipedia...');
 
             $('#title-wiki').html(page.title);
             $('#content-wiki').html(page.extract);
@@ -107,8 +107,8 @@ if (annyang) {
             $('#modal-wiki').animateCss('fadeIn');
             $('#modal-wiki').addClass('is-active');
           } else {
-            respond('I couldn\'t find \'' + topic + '\' on Wikipedia. ' +
-              'Searching on Google...');
+            $('#response').html('I couldn\'t find \'' + topic +
+              '\' on Wikipedia. 😅' + 'Searching on Google...');
             window.open('https://www.google.com/#q=' + processed);
           }
         },
@@ -141,7 +141,7 @@ if (annyang) {
   // Google search given a search topic.
   var googleSearch = function(topic) {
     if (listening) {
-      respond('Searching \'' + topic + '\' on Google...');
+      $('#response').html('Searching \'' + topic + '\' on Google...');
       var processed = topic.replace(/ /g, '%20');
       window.open('https://www.google.com/#q=' + processed);
       listening = false;
@@ -151,7 +151,7 @@ if (annyang) {
   // Bing search given a search topic.
   var bingSearch = function(topic) {
     if (listening) {
-      respond('Searching \'' + topic + '\' on Bing...');
+      $('#response').html('Searching \'' + topic + '\' on Bing...');
       var processed = topic.replace(/ /g, '%20');
       window.open('https://www.bing.com/search?q=' + processed);
       listening = false;
@@ -163,10 +163,10 @@ if (annyang) {
     if (listening) {
       website = website.toLowerCase();
       if (supportedWebsites.includes(website)) {
-        respond('Opening \'' + website + '\' on a new tab...');
+        $('#response').html('Opening \'' + website + '\' on a new tab...');
         window.open('https://www.' + website + '.com');
       } else {
-        respond('Searching \'' + website + '\' on a new tab...');
+        $('#response').html('Searching \'' + website + '\' on a new tab...');
         window.open('https://www.google.com/#q=' + website);
       }
       listening = false;
