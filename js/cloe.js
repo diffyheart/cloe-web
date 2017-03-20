@@ -102,7 +102,9 @@ if (annyang) {
             googleSearch(processed);
           }
         },
-        error: googleSearch(processed);
+        error: function() {
+          googleSearch(processed);
+        }
       });
 
       //googleSearch(topic);
