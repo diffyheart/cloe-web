@@ -19,6 +19,9 @@ var respond = function(response) {
 };
 
 if (annyang) {
+  // greeting
+  respond('Hello, I\'m Cloe.');
+
   var listening = false;
   var modalOpened = false;
 
@@ -98,7 +101,7 @@ if (annyang) {
           var page = Object.values(data.query.pages)[0];
           if (page.extract.length > 0) {
             modalOpened = true;
-            $('#response').html('Searching \'' + topic + '\' on Wikipedia...');
+            respond('Searching \'' + topic + '\' on Wikipedia...');
 
             $('#title-wiki').html(page.title);
             $('#content-wiki').html(page.extract);
@@ -107,8 +110,8 @@ if (annyang) {
             $('#modal-wiki').animateCss('fadeIn');
             $('#modal-wiki').addClass('is-active');
           } else {
-            $('#response').html('I couldn\'t find \'' + topic +
-              '\' on Wikipedia. 😅' + 'Searching on Google...');
+            respond('I couldn\'t find \'' + topic + '\' on Wikipedia. 😅' +
+              'Searching on Google...');
             window.open('https://www.google.com/#q=' + processed);
           }
         },
@@ -136,12 +139,14 @@ if (annyang) {
   // Search a place on Google map.
   var mapSearch = function(topic) {
 
+    // to be implemented
+
   };
 
   // Google search given a search topic.
   var googleSearch = function(topic) {
     if (listening) {
-      $('#response').html('Searching \'' + topic + '\' on Google...');
+      respond('Searching \'' + topic + '\' on Google...');
       var processed = topic.replace(/ /g, '%20');
       window.open('https://www.google.com/#q=' + processed);
       listening = false;
@@ -151,7 +156,7 @@ if (annyang) {
   // Bing search given a search topic.
   var bingSearch = function(topic) {
     if (listening) {
-      $('#response').html('Searching \'' + topic + '\' on Bing...');
+      respond('Searching \'' + topic + '\' on Bing...');
       var processed = topic.replace(/ /g, '%20');
       window.open('https://www.bing.com/search?q=' + processed);
       listening = false;
@@ -163,10 +168,10 @@ if (annyang) {
     if (listening) {
       website = website.toLowerCase();
       if (supportedWebsites.includes(website)) {
-        $('#response').html('Opening \'' + website + '\' on a new tab...');
+        respond('Opening \'' + website + '\' on a new tab...');
         window.open('https://www.' + website + '.com');
       } else {
-        $('#response').html('Searching \'' + website + '\' on a new tab...');
+        respond('Searching \'' + website + '\' on a new tab...');
         window.open('https://www.google.com/#q=' + website);
       }
       listening = false;
@@ -220,4 +225,6 @@ if (annyang) {
 
   annyang.addCommands(commands);
   annyang.start();
+} else {
+    respond('Sorry, you\'re on an unsupported browser. 😵');
 }
