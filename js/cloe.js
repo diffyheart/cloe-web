@@ -91,14 +91,19 @@ if (annyang) {
         contentType: "application/json",
         success: function(data) {
           var page = Object.values(data.query.pages)[0];
-          $('#title-wiki').html(page.title);
-          $('#content-wiki').html(page.extract);
-        }
-      });
+          if (page.extract.length > 0) {
+            $('#title-wiki').html(page.title);
+            $('#content-wiki').html(page.extract);
 
-      $('html').addClass('is-clipped');
-      $('#modal-wiki').animateCss('fadeInDown');
-      $('#modal-wiki').addClass('is-active');
+            $('html').addClass('is-clipped');
+            $('#modal-wiki').animateCss('fadeInDown');
+            $('#modal-wiki').addClass('is-active');
+          } else {
+            googleSearch(processed);
+          }
+        },
+        error: googleSearch(processed);
+      });
 
       //googleSearch(topic);
       listening = false;
