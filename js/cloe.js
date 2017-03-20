@@ -85,7 +85,9 @@ if (annyang) {
 
       $.ajax({
         type: "GET",
-        dataType: "json",
+        async: false,
+        dataType: "jsonp",
+        contentType: "application/json",
         url: url,
         success: function() {
           $('#title-wiki').html(topic);
