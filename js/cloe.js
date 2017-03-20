@@ -23,12 +23,12 @@ if (annyang) {
   var modalOpened = false;
 
   // start listening responses
-  var startListeningResponses = ['What\'s up?', 'Yes?', 'Yeah?', 'Mmhmm?',
-    'What do you need?', 'Heeeeyyyyyyy, What\'s up?'];
+  var startListeningResponses = ['What\'s up? 😊', 'Yes? 😃', 'Yeah? 😊',
+    'Mmhmm? 😊', 'What do you need? 😊', 'Heeeyyyyyy, What\'s up? 😜'];
 
   // stop listening responses
-  var stopListeningResponses = ['Alright!', 'Okay!', 'Alrighty.',
-    'That\'s cool.', 'Let me know if you need anything!'];
+  var stopListeningResponses = ['Alright! 😄', 'Okay! 😛', 'Alrighty. 😗',
+    'That\'s cool. 😌', 'Let me know if you need anything! 😉'];
 
   // list of supported websites
   var supportedWebsites = ['google', 'facebook', 'reddit', 'twitter',
@@ -46,6 +46,11 @@ if (annyang) {
         scrollTop: $(identifier).offset().top
     }, 1000);
   }
+
+  // Who is Cloe?
+  var favoriteFood = function() { respond('🍣'); };
+  var favoriteDrink = function() { respond('🍺'); };
+  var favoriteFruit = function() { respond('🍑'); };
 
   // Start listening.
   var startListening = function() {
@@ -160,15 +165,22 @@ if (annyang) {
         respond('Opening \'' + website + '\' on a new tab...');
         window.open('https://www.' + website + '.com');
       } else {
-        googleSearch(website);
+        respond('Searching \'' + website + '\' on a new tab...');
+        window.open('https://www.google.com/#q=' + website);
       }
       listening = false;
+
     }
   };
 
   var commands = {
     // start listening
     '(hey) Chloe': startListening,
+
+    // Who is Cloe
+    'Chloe what\'s your favorite food': favoriteFood,
+    'Chloe what\'s your favorite drink': favoriteDrink,
+    'Chloe what\'s your favorite fruit': favoriteFruit,
 
     // stop listening
     'nevermind': stopListening,
