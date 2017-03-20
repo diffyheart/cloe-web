@@ -79,6 +79,19 @@ if (annyang) {
     if (listening) {
       respond('Searching \'' + topic + '\' on Wikipedia...');
 
+      var processed = topic.replace(/ /g, '%20');
+      var url = 'https://en.wikipedia.org/w/api.php?action=query&' +
+      'prop=extracts&format=json&exintro=&titles=' + processed
+
+      $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: url,
+        success: function() {
+          $('#title-wiki').html(topic);
+        }
+      });
+
       $('html').addClass('is-clipped');
       $('#modal-wiki').animateCss('fadeIn');
       $('#modal-wiki').addClass('is-active');
