@@ -186,7 +186,7 @@ if (annyang) {
     'who is *topic': wikiSearch,
 
     // close modal
-    '(okay) you can close that': closeModal,
+    'you can close that': closeModal,
     '(could you) close that': closeModal,
 
     // map search
