@@ -110,6 +110,8 @@ if (annyang) {
           googleSearch(processed);
         }
       });
+
+      listening = false;
     }
   };
 
