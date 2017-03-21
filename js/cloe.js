@@ -171,16 +171,6 @@ if (annyang) {
     }
   };
 
-  // Search for a video from YouTube.
-  var videoSearch = function(topic) {
-    if (listening) {
-      $('html').addClass('is-clipped');
-      $('#modal-wiki').animateCss('fadeIn');
-      $('#modal-wiki').addClass('is-active');
-      listening = false;
-    }
-  };
-
   // Open a website given a website name; Google search if not in the list.
   var openWebsite = function(website) {
     if (listening) {
@@ -234,10 +224,6 @@ if (annyang) {
     'google *topic': googleSearch,
     'bing *topic': bingSearch,
     'search *topic': googleSearch,
-
-    // YouTube video search
-    'video search *topic': videoSearch,
-    'find *topic on YouTube': videoSearch,
 
     // open web page
     'open *website': openWebsite,
