@@ -48,10 +48,14 @@ if (annyang) {
   }
 
   // Who is Cloe?
-  var favoriteFood = function() { respond('🍣'); };
-  var favoriteDrink = function() { respond('🍺'); };
-  var favoriteFruit = function() { respond('🍑'); };
-  var favoriteAnimal = function() { respond('🐳'); };
+  var cloesFavorite = function(topic) {
+    switch (topic) {
+      case 'food': respond('🍣'); break;
+      case 'drink': respond('🍺'); break;
+      case 'fruit': respond('🍑'); break;
+      case 'animal': respond('🐳');
+    }
+  }
 
   // Start listening.
   var startListening = function() {
@@ -133,7 +137,7 @@ if (annyang) {
     if (listening) {
       if (modalOpened) {
         $('html').removeClass('is-clipped');
-        $('#modal-wiki').removeClass('is-active');
+        $('.modal').removeClass('is-active');
         modalOpened = false;
       }
     }
@@ -167,6 +171,16 @@ if (annyang) {
     }
   };
 
+  // Search for a video from YouTube.
+  var videoSearch = function(topic) {
+    if (listening) {
+      $('html').addClass('is-clipped');
+      $('#modal-wiki').animateCss('fadeIn');
+      $('#modal-wiki').addClass('is-active');
+      listening = false;
+    }
+  };
+
   // Open a website given a website name; Google search if not in the list.
   var openWebsite = function(website) {
     if (listening) {
@@ -179,19 +193,15 @@ if (annyang) {
         window.open('https://www.google.com/#q=' + website);
       }
       listening = false;
-
     }
   };
 
   var commands = {
+    // Who is Cloe
+    'Chloe what\'s your favorite :topic': cloesFavorite,
+
     // start listening
     '(hey) Chloe': startListening,
-
-    // Who is Cloe
-    'Chloe what\'s your favorite food': favoriteFood,
-    'Chloe what\'s your favorite drink': favoriteDrink,
-    'Chloe what\'s your favorite fruit': favoriteFruit,
-    'Chloe what\'s your favorite animal': favoriteAnimal,
 
     // stop listening
     'nevermind': stopListening,
@@ -224,6 +234,10 @@ if (annyang) {
     'google *topic': googleSearch,
     'bing *topic': bingSearch,
     'search *topic': googleSearch,
+
+    // YouTube video search
+    'video search *topic': videoSearch,
+    'find *topic on YouTube': videoSearch,
 
     // open web page
     'open *website': openWebsite,
