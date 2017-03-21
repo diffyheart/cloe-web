@@ -104,12 +104,12 @@ if (annyang) {
             modalOpened = true;
             respond('Searching \'' + topic + '\' on Wikipedia...');
 
-            $('#title-wiki').html(page.title);
-            $('#content-wiki').html(page.extract);
+            $('#modal-title').html(page.title);
+            $('#modal-content').html(page.extract);
 
             $('html').addClass('is-clipped');
-            $('#modal-wiki').animateCss('fadeIn');
-            $('#modal-wiki').addClass('is-active');
+            $('#modal-ter').animateCss('fadeIn');
+            $('#modal-ter').addClass('is-active');
           } else {
             respond('I couldn\'t find \'' + topic + '\' on Wikipedia. 😅' +
               'Searching on Google...');
@@ -125,13 +125,6 @@ if (annyang) {
     }
   };
 
-  // Search word definition on Wiktionary.
-  var wiktionarySearch = function(word) {
-
-    // to be implemented
-
-  };
-
   // Close the modal if it's open.
   var closeModal = function() {
     if (listening) {
@@ -142,13 +135,6 @@ if (annyang) {
       }
     }
     listening = false;
-  };
-
-  // Search a place on Google map.
-  var mapSearch = function(topic) {
-
-    // to be implemented
-
   };
 
   // Google search given a search topic.
@@ -208,17 +194,9 @@ if (annyang) {
     'who\'s *topic': wikiSearch,
     'who is *topic': wikiSearch,
 
-    // wiktionary search
-    'what does :word mean': wiktionarySearch,
-
     // close modal
     'you can close that': closeModal,
     '(could you) close that': closeModal,
-
-    // map search
-    'where\'s *place': mapSearch,
-    'where is *place': mapSearch,
-    'how do I get to *place': mapSearch,
 
     // general search
     'google *topic': googleSearch,
