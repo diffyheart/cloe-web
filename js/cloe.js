@@ -177,7 +177,7 @@ if (annyang) {
     'Chloe what\'s your favorite :topic': cloesFavorite,
 
     // start listening
-    '(hey) Chloe': startListening,
+    'hey Chloe': startListening,
 
     // stop listening
     'nevermind': stopListening,
