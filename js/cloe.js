@@ -47,7 +47,6 @@ if (annyang) {
     }, 1000);
   }
 
-  // Who is Cloe?
   var cloesFavorite = function(topic) {
     switch (topic) {
       case 'food': respond('🍣'); break;
@@ -55,6 +54,10 @@ if (annyang) {
       case 'fruit': respond('🍑'); break;
       case 'animal': respond('🐳');
     }
+  }
+
+  var sendNudes = function() {
+    window.location.replace('https://github.com/jinyeom/cloe');
   }
 
   // Start listening.
@@ -173,8 +176,8 @@ if (annyang) {
   };
 
   var commands = {
-    // Who is Cloe
     'Chloe what\'s your favorite :topic': cloesFavorite,
+    'send nudes': sendNudes,
 
     // start listening
     'hey Chloe': startListening,
