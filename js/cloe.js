@@ -68,7 +68,7 @@ if (annyang) {
   }
 
   var sendNudes = function() {
-    window.location.href('https://github.com/jinyeom/cloe');
+    window.location.href = 'https://github.com/jinyeom/cloe';
   }
 
   // Start listening.
@@ -198,6 +198,9 @@ if (annyang) {
     'nothing': stopListening,
     'stop listening': stopListening,
 
+    // briefing (all the information of that day such as weather)
+
+
     // current time
     'show me time': showTime,
     'what time is it': showTime,
@@ -220,6 +223,10 @@ if (annyang) {
     // open web page
     'open *website': openWebsite,
     'go to *website': openWebsite,
+
+    // instant note (including download)
+
+    //
   };
 
   annyang.addCommands(commands);
