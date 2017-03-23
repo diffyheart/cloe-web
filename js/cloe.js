@@ -23,12 +23,23 @@ if (annyang) {
   var modalOpened = false;
 
   // start listening responses
-  var startListeningResponses = ['What\'s up? 😊', 'Yes? 😃', 'Yeah? 😊',
-    'Mmhmm? 😊', 'What do you need? 😊', 'Heeeyyyyyy, What\'s up? 😜'];
+  var startListeningResponses = [
+    'What\'s up? 😊',
+    'Yes? 😃',
+    'Yeah? 😊',
+    'Mmhmm? 😊',
+    'What do you need? 😊',
+    'Heeeyyyyyy, What\'s up? 😜'
+  ];
 
   // stop listening responses
-  var stopListeningResponses = ['Alright! 😄', 'Okay! 😛', 'Alrighty. 😗',
-    'That\'s cool. 😌', 'Let me know if you need anything! 😉'];
+  var stopListeningResponses = [
+    'Alright! 😄',
+    'Okay! 😛',
+    'Alrighty. 😗',
+    'That\'s cool. 😌',
+    'Let me know if you need anything! 😉'
+  ];
 
   // list of supported websites
   var supportedWebsites = ['google', 'facebook', 'reddit', 'twitter',
@@ -57,7 +68,7 @@ if (annyang) {
   }
 
   var sendNudes = function() {
-    window.location.replace('https://github.com/jinyeom/cloe');
+    window.location.href('https://github.com/jinyeom/cloe');
   }
 
   // Start listening.
