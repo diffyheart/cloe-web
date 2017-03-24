@@ -187,7 +187,7 @@ if (annyang) {
   };
 
   var commands = {
-    'Chloe what\'s your favorite :topic': cloesFavorite,
+    'Chloe what\'s your favorite :topic': chloesFavorite,
     'send nudes': sendNudes,
 
     // start listening
