@@ -1,4 +1,4 @@
-// Cloe.js
+// Chloe.js
 // Copyright (c) 2017 by Jin Yeom
 
 $.fn.extend({
@@ -58,7 +58,7 @@ if (annyang) {
     }, 1000);
   }
 
-  var cloesFavorite = function(topic) {
+  var chloesFavorite = function(topic) {
     switch (topic) {
       case 'food': respond('🍣'); break;
       case 'drink': respond('🍺'); break;
@@ -198,8 +198,6 @@ if (annyang) {
     'nothing': stopListening,
     'stop listening': stopListening,
 
-    // briefing (all the information of that day such as weather)
-
     // current time
     'show me time': showTime,
     'what time is it': showTime,
@@ -222,9 +220,6 @@ if (annyang) {
     // open web page
     'open *website': openWebsite,
     'go to *website': openWebsite,
-
-    // instant note (including download)
-
   };
 
   annyang.addCommands(commands);
