@@ -20,7 +20,6 @@ var respond = function(response) {
 
 if (annyang) {
   var listening = false;
-  var modalOpened = false;
 
   // start listening responses
   var startListeningResponses = [
@@ -149,18 +148,6 @@ if (annyang) {
     }
   };
 
-  // Close the modal if it's open.
-  var closeModal = function() {
-    if (listening) {
-      if (modalOpened) {
-        $('html').removeClass('is-clipped');
-        $('.modal').removeClass('is-active');
-        modalOpened = false;
-      }
-    }
-    listening = false;
-  };
-
   // Google search given a search topic.
   var googleSearch = function(topic) {
     if (listening) {
@@ -217,10 +204,6 @@ if (annyang) {
     'what is *topic': wikiSearch,
     'who\'s *topic': wikiSearch,
     'who is *topic': wikiSearch,
-
-    // close modal
-    'you can close that': closeModal,
-    '(could you) close that': closeModal,
 
     // general search
     'google *topic': googleSearch,
