@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="shortcut icon" href="images/favicon.ico">
-    <title id="title-response">Hello, I'm Chloe.</title>
+    <title id="title-response">Hello, I'm Cloe.</title>
 
     <!-- CSS stylesheets -->
     <link rel="stylesheet" href="css/bulma.css">
@@ -16,21 +16,19 @@
     <script type="text/javascript" src="js/annyang.min.js"></script>
     <script type="text/javascript" src="js/p5.min.js"></script>
     <script type="text/javascript" src="js/p5.sound.js"></script>
-    <script type="text/javascript" src="js/compromise.min.js"></script>
     <script type="text/javascript" src="js/interface.js"></script>
-    <script type="text/javascript" src="js/chloe.js"></script>
+    <script type="text/javascript" src="js/cloe.js"></script>
   </head>
   <body>
     <!-- interface -->
-    <section class="hero is-info is-fullheight" id="cloe">
-      <!-- Hero header: will stick at the top -->
+    <section class="hero is-info is-fullheight">
       <div class="hero-head">
         <header class="nav">
           <div class="container">
             <div class="nav-left">
               <a class="nav-item" href="https://jinyeom.github.io/cloe">
                 <!-- for volume response -->
-                <div id="canvas-holder"></div>Chloe
+                <div id="canvas-holder"></div>
               </a>
             </div>
           </div>
@@ -42,10 +40,11 @@
         <div class="container has-text-centered">
           <!-- response text -->
           <p class="title" id="response"></p>
+          <img src="/static/images/logo.png" alt="logo">
           <script type="text/javascript">
             // for response
             $('#response').animateCss('fadeIn');
-            $('#response').html("Hello, I'm Chloe.");
+            $('#response').html("Hello, I'm Cloe.");
           </script>
         </div>
       </div>
@@ -55,12 +54,13 @@
         <div class="container">
           <div class="content has-text-centered">
             <p>
-              <strong>Chloe</strong> by <a href="http://jinyeom.github.io">Jin Yeom</a>. The source code is licensed
-              <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-              is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC ANS 4.0</a>.
+              <strong>Cloe</strong> by
+              <a href="http://jinyeom.github.io">Jin Yeom</a> with <a class="icon"><i class="fa fa-heart"></i></a>.
+              The source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+              The website content is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC ANS 4.0</a>.
             </p>
             <p>
-              <a class="icon" href="https://github.com/jinyeom/chloe">
+              <a class="icon" href="https://github.com/jinyeom">
                 <i class="fa fa-github"></i>
               </a>
             </p>

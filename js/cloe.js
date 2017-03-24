@@ -1,4 +1,4 @@
-// Chloe.js
+// Cloe.js
 // Copyright (c) 2017 by Jin Yeom
 
 $.fn.extend({
@@ -42,8 +42,18 @@ if (annyang) {
   ];
 
   // list of supported websites
-  var supportedWebsites = ['google', 'facebook', 'reddit', 'twitter',
-    'netflix', 'tumblr', 'github', 'youtube', 'hulu', 'amazon'];
+  var supportedWebsites = [
+    'google',
+    'facebook',
+    'reddit',
+    'twitter',
+    'netflix',
+    'tumblr',
+    'github',
+    'youtube',
+    'hulu',
+    'amazon'
+  ];
 
   // random selection helper function
   var randSelect = function(choices) {
@@ -58,7 +68,7 @@ if (annyang) {
     }, 1000);
   }
 
-  var chloesFavorite = function(topic) {
+  var cloesFavorite = function(topic) {
     switch (topic) {
       case 'food': respond('🍣'); break;
       case 'drink': respond('🍺'); break;
@@ -187,7 +197,7 @@ if (annyang) {
   };
 
   var commands = {
-    'Chloe what\'s your favorite :topic': chloesFavorite,
+    'Chloe what\'s your favorite :topic': cloesFavorite,
     'send nudes': sendNudes,
 
     // start listening
