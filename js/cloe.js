@@ -200,7 +200,6 @@ if (annyang) {
 
     // briefing (all the information of that day such as weather)
 
-
     // current time
     'show me time': showTime,
     'what time is it': showTime,
@@ -226,7 +225,6 @@ if (annyang) {
 
     // instant note (including download)
 
-    //
   };
 
   annyang.addCommands(commands);
