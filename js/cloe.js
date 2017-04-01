@@ -168,6 +168,16 @@ if (annyang) {
     }
   };
 
+  // Search for videos on YouTube.
+  var youtubeSearch = function(topic) {
+    if (listening) {
+      respond('Searching \'' + topic + '\' on YouTube...');
+      var processed = topic.replace(/ /g, '%20');
+      window.open('https://www.youtube.com/results?search_query=' + processed);
+      listening = false;
+    }
+  };
+
   // Open a website given a website name; Google search if not in the list.
   var openWebsite = function(website) {
     if (listening) {
@@ -209,6 +219,7 @@ if (annyang) {
     'google *topic': googleSearch,
     'bing *topic': bingSearch,
     'search *topic': googleSearch,
+    'video search *topic': youtubeSearch,
 
     // open web page
     'open *website': openWebsite,
