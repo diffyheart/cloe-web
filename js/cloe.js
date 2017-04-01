@@ -131,7 +131,7 @@ if (annyang) {
             $('#modal-content').html(page.extract);
 
             $('html').addClass('is-clipped');
-						$('#modal-ter').animateCss('fade-in');
+						$('#modal-ter').animateCss('fadeIn');
             $('#modal-ter').addClass('is-active');
           } else {
             respond('I couldn\'t find \'' + topic + '\' on Wikipedia. 😅' +
