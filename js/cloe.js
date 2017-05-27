@@ -178,6 +178,16 @@ if (annyang) {
     }
   };
 
+  // Search for videos on YouTube.
+  var netflixSearch = function(topic) {
+    if (listening) {
+      respond('Searching \'' + topic + '\' on Netflix...');
+      var processed = topic.replace(/ /g, '%20');
+      window.open('https://www.netflix.com/search?q=' + processed);
+      listening = false;
+    }
+  };
+
   // Open a website given a website name; Google search if not in the list.
   var openWebsite = function(website) {
     if (listening) {
@@ -220,6 +230,7 @@ if (annyang) {
     'bing *topic': bingSearch,
     'search *topic': googleSearch,
     'video search *topic': youtubeSearch,
+    'find *topic on netflix': netflixSearch,
 
     // open web page
     'open *website': openWebsite,
