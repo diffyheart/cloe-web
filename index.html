@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/bulma.css">
     <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/material.min.css">
+    <!-- <link rel="stylesheet" href="css/material.min.css"> -->
 
     <!-- Javascript libraries -->
     <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -18,7 +18,6 @@
     <script type="text/javascript" src="js/annyang.min.js"></script>
     <script type="text/javascript" src="js/p5.min.js"></script>
     <script type="text/javascript" src="js/p5.sound.js"></script>
-    <script type="text/javascript" src="js/interface.js"></script>
     <script type="text/javascript" src="js/cloe.js"></script>
   </head>
   <body>
@@ -44,7 +43,6 @@
             <script type="text/javascript">
               $('#help').click(function() {
                 $('html').addClass('is-clipped');
-                $('#modal-help').animateCss('fadeIn');
                 $('#modal-help').addClass('is-active');
               })
             </script>
@@ -101,10 +99,6 @@
     <div id="modal-help" class="modal">
       <div class="modal-background"></div>
       <div class="modal-card">
-        <!-- <header class="modal-card-head">
-          <p class="modal-card-title">Help</p>
-          <button class="delete"></button>
-        </header> -->
         <section class="modal-card-body">
           <div class="content is-medium">
             <section class="hero is-info is-fullheight">
@@ -113,35 +107,37 @@
                   <div class="column">
                     <p>
                       <h1 class="subtitle is-2">Start Listening</h1>
-                      'hey Cloe'<br>
+                      'Hey Cloe'<br>
                     </p>
                     <p>
                       <h1 class="subtitle is-2">Stop Listening</h1>
-                      'nevermind'<br>
-                      'nothing'<br>
-                      'stop listening'<br>
+                      'Nevermind'<br>
+                      'Nothing'<br>
+                      'Stop listening'<br>
                     </p>
                     <p>
                       <h1 class="subtitle is-2">Current Time</h1>
-                      'show me time'<br>
-                      'what time is it?'<br>
+                      'Show me time'<br>
+                      'What time is it?'<br>
                     </p>
                     <p>
                       <h1 class="subtitle is-2">Wikipedia Search</h1>
-                      'what's __________'<br>
-                      'who's __________'<br>
+                      'What's __________'<br>
+                      'Who's __________'<br>
                     </p>
                     <p>
                       <h1 class="subtitle is-2">General Search</h1>
-                      'google __________'<br>
-                      'bing __________'<br>
-                      'search __________'<br>
-                      'video search __________'<br>
+                      'Google __________'<br>
+                      'Bing __________'<br>
+                      'Video search __________'<br>
+                      'Find __________ on YouTube'<br>
+                      'Search __________ on Netflix'<br>
+                      'Find __________ on Netflix'<br>
                     </p>
                     <p>
                       <h1 class="subtitle is-2">Open Web Page</h1>
-                      'open __________'<br>
-                      'go to __________'<br>
+                      'Open __________'<br>
+                      'Go to __________'<br>
                     </p>
                   </div>
                 </div>

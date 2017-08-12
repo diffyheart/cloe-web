@@ -1,6 +1,50 @@
 // Cloe.js
 // Copyright (c) 2017 by Jin Yeom
 
+var canvas;
+var mic;
+var vol;
+
+function setup() {
+	canvas = createCanvas(32, 32);
+	canvas.parent("canvas-holder");
+
+	frameRate(60);
+	smooth();
+	colorMode(RGB, 255, 255, 255, 255);
+
+	mic = new p5.AudioIn();
+	mic.start();
+	analyzer = new p5.Amplitude();
+	fft = new p5.FFT();
+
+	analyzer.setInput(mic);
+	fft.setInput(mic);
+}
+
+function draw() {
+	vol = min(analyzer.getLevel() * 120, 20);
+	push();
+	translate(0,0);
+
+	noStroke();
+
+	fill(50, 115, 220, 255);
+	rect(0, 0, width, height);
+	pop();
+	push();
+
+	noStroke();
+	fill(255, 255, 255, 255);
+	ellipse(width/2, height/2, vol, vol);
+
+	noStroke();
+	fill(50, 115, 220, 255);
+	ellipse(width/2, height/2, vol/1.5, vol/1.5);
+
+	pop();
+}
+
 $.fn.extend({
   animateCss: function (animName) {
     var animEnd = 'webkitAnimationEnd mozAnimationEnd ' +
@@ -40,31 +84,26 @@ if (annyang) {
     'Let me know if you need anything! 😉'
   ];
 
-  // list of supported websites
-  var supportedWebsites = [
-    'google',
-    'facebook',
-    'reddit',
-    'twitter',
-    'netflix',
-    'tumblr',
-    'github',
-    'youtube',
-    'hulu',
-    'amazon'
-  ];
+  // list of supported websites (curated based on my personal interest)
+  var supportedWebsites = {
+    'google': 'www.google.com',
+    'facebook': 'www.facebook.com',
+    'reddit': 'www.reddit.com',
+    'twitter': 'twitter.com',
+    'netflix': 'www.netflix.com',
+    'tumblr': 'www.tumblr.com',
+    'github': 'github.com',
+    'youtube': 'www.youtube.com',
+    'hulu': 'www.hulu.com',
+    'amazon': 'www.amazon.com',
+    'deepmind': 'deepmind.com',
+    'tensorflow': 'www.tensorflow.org',
+  };
 
   // random selection helper function
   var randSelect = function(choices) {
     var index = Math.floor(Math.random() * choices.length);
     return choices[index];
-  }
-
-  // scroll to a specified section of the page
-  var scrollTo = function(identifier) {
-    $('html, body').animate({
-        scrollTop: $(identifier).offset().top
-    }, 1000);
   }
 
   var cloesFavorite = function(topic) {
@@ -192,9 +231,9 @@ if (annyang) {
   var openWebsite = function(website) {
     if (listening) {
       website = website.toLowerCase();
-      if (supportedWebsites.includes(website)) {
+      if (website in supportedWebsites) {
         respond('Opening \'' + website + '\' on a new tab...');
-        window.open('https://www.' + website + '.com');
+        window.open('https://' + supportedWebsites[website]);
       } else {
         respond('Searching \'' + website + '\' on a new tab...');
         window.open('https://www.google.com/#q=' + website);
@@ -228,8 +267,9 @@ if (annyang) {
     // general search
     'google *topic': googleSearch,
     'bing *topic': bingSearch,
-    'search *topic': googleSearch,
     'video search *topic': youtubeSearch,
+    'find *topic on youtube': youtubeSearch,
+    'search *topic on netflix': netflixSearch,
     'find *topic on netflix': netflixSearch,
 
     // open web page
